@@ -16,7 +16,7 @@ public class Participante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    @Column(columnDefinition = "TEXT")
+    @Column(unique = true)
     private String email;
 
     // Relacionamentos

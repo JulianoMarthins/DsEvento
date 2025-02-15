@@ -20,7 +20,7 @@ public class Atividade {
 
     // Relacionamentos
     @ManyToMany(mappedBy = "atividades")
-   private Set<Participante> participantes = new HashSet<>();
+    private Set<Participante> participantes = new HashSet<>();
 
     @OneToMany(mappedBy = "atividade")
     private List<Bloco> blocos = new ArrayList<>();
@@ -30,14 +30,12 @@ public class Atividade {
     private Categoria categoria;
 
 
-
-
     // Construtores
-    public Atividade(){
+    public Atividade() {
 
     }
 
-    public Atividade(Integer id, String nome, String descricao, Double preco, Set<Participante> participantes, Categoria categoria){
+    public Atividade(Integer id, String nome, String descricao, Double preco, Set<Participante> participantes, Categoria categoria) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
