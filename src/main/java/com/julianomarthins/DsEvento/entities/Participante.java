@@ -1,5 +1,6 @@
 package com.julianomarthins.DsEvento.entities;
 
+
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -15,13 +16,17 @@ public class Participante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    @Column(unique = true)
+    @Column(columnDefinition = "TEXT")
     private String email;
 
     // Relacionamentos
-    @ManyToMany(mappedBy = "participantes")
+    @ManyToMany
+    @JoinTable(
+            name = "tb_participante_atividade",
+            joinColumns = @JoinColumn(name = "participante_id"),
+            inverseJoinColumns = @JoinColumn(name = "atividade_id")
+    )
     private Set<Atividade> atividades = new HashSet<>();
-
 
     // Construtores
     public Participante(){
@@ -36,7 +41,8 @@ public class Participante {
         this.atividades = atividades;
     }
 
-    // Code & HashCode
+
+    // Equals & HashCode
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -50,7 +56,8 @@ public class Participante {
         return Objects.hashCode(id);
     }
 
-    // Getters & Setters
+
+    // Getter & Setter
     public Integer getId() {
         return id;
     }

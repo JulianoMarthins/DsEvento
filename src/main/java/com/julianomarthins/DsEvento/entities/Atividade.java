@@ -1,5 +1,6 @@
 package com.julianomarthins.DsEvento.entities;
 
+
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -18,20 +19,15 @@ public class Atividade {
     private Double preco;
 
     // Relacionamentos
-    @ManyToMany
-    @JoinTable(
-            name = "tb_atividade_participante",
-            joinColumns = @JoinColumn(name = "atividade_id"),
-            inverseJoinColumns = @JoinColumn(name = "participante_id")
-    )
-    private Set<Participante> participantes = new HashSet<>();
+    @ManyToMany(mappedBy = "atividades")
+   private Set<Participante> participantes = new HashSet<>();
+
+    @OneToMany(mappedBy = "atividade")
+    private List<Bloco> blocos = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-
-    @OneToMany(mappedBy = "atividade")
-    private List<Bloco> blocos = new ArrayList<>();
 
 
 
@@ -41,13 +37,14 @@ public class Atividade {
 
     }
 
-    public Atividade(Integer id, String nome, String descricao, Double preco, Set<Participante> participantes){
+    public Atividade(Integer id, String nome, String descricao, Double preco, Set<Participante> participantes, Categoria categoria){
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
 
         this.participantes = participantes;
+        this.categoria = categoria;
     }
 
 
@@ -66,7 +63,7 @@ public class Atividade {
     }
 
 
-    // Getters & Setters
+    // Getters & Setter
     public Integer getId() {
         return id;
     }
@@ -103,7 +100,11 @@ public class Atividade {
         return participantes;
     }
 
-    public List<Bloco> getBlocos() {
-        return blocos;
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

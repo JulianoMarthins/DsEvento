@@ -2,6 +2,7 @@ package com.julianomarthins.DsEvento.entities;
 
 import jakarta.persistence.*;
 
+
 import java.time.Instant;
 import java.util.Objects;
 
@@ -9,7 +10,7 @@ import java.util.Objects;
 @Table(name = "tb_bloco")
 public class Bloco {
 
-    //Atributos
+    // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,13 +19,9 @@ public class Bloco {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant fim;
 
-    // Relacionamento
+    // Relacionamentos
     @ManyToOne
-    @JoinTable(
-            name = "tb_bloco_atividade",
-            joinColumns = @JoinColumn(name = "id_bloco"),
-            inverseJoinColumns = @JoinColumn(name = "id_atividade")
-    )
+    @JoinColumn(name = "atividade_id")
     private Atividade atividade;
 
 
@@ -33,10 +30,13 @@ public class Bloco {
     public Bloco(){
 
     }
-    public Bloco(Integer id, Instant inicio, Instant fim){
+
+    public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade){
         this.id = id;
         this.inicio = inicio;
         this.fim = fim;
+
+        this.atividade = atividade;
     }
 
 
@@ -53,6 +53,7 @@ public class Bloco {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 
     // Getters & Setters
     public Integer getId() {
@@ -77,5 +78,13 @@ public class Bloco {
 
     public void setFim(Instant fim) {
         this.fim = fim;
+    }
+
+    public Atividade getAtividade() {
+        return atividade;
+    }
+
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
     }
 }
