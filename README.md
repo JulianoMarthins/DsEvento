@@ -28,8 +28,23 @@ Projeto avaliativo para o curso **Java Spring Professional** da **DevSuperior**,
 * **Setup de projeto Spring Boot para banco H2**
 * **Seeding de base de dados H2**
 
-## Desenvolvedor
+## Desenvolvedor:
 
-**Juliano Martins de Souza**
+ <div align="center">
 
-**LinkedIn:** https://www.linkedin.com/in/julianomarthins/
+## Juliano Martins de Souza
+
+### Contatos
+
+  <a href="https://www.linkedin.com/in/julianomarthins/" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="52" height="40" alt="linkedin logo"  />
+  </a>
+  <a href="https://www.instagram.com/poa.martins/" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/instagram/default.svg" width="52" height="40" alt="instagram logo"  />
+  </a>
+  <a href="https://wa.me/5551996440559" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/whatsapp/default.svg" width="52" height="40" alt="whatsapp logo"  />
+  </a>
+  <a href="mailto:julianopoamartins@gmail.com" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/gmail/default.svg" width="52" height="40" alt="gmail logo"  />
+  </a>
